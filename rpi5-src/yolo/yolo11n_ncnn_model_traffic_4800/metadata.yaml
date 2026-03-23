@@ -1,0 +1,24 @@
+description: Ultralytics YOLO11n model trained on G:\products\projects\인공지능자동차\PI5_V\sw\examples\yolo_v11\datasets\traffic\data.yaml
+author: Ultralytics
+date: '2025-03-27T11:06:18.494873'
+version: 8.3.96
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: bicycle
+  1: bus
+  2: car
+  3: cng
+  4: motorcycle
+  5: other-vehicle
+  6: person
+  7: rickshaw
+args:
+  batch: 1
+  half: false

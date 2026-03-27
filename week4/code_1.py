@@ -60,9 +60,9 @@ def key_handler(channel):
     music_enabled = not music_enabled
 
     if music_enabled:
-        print("음악 재생 허용")
+        print("allow to play music")
     else:
-        print("음악 재생 중지")
+        print("stop the music")
 
 
 # 조건 2 code 작성
@@ -115,11 +115,7 @@ def cds_music_control():
     # 버튼 인터럽트 등록
     GPIO.add_event_detect(SW, GPIO.FALLING, callback=key_handler, bouncetime=300)
 
-    print("프로그램 시작")
-    print("- 어두우면 음악 재생")
-    print("- 밝으면 음악 정지")
-    print("- 버튼을 누르면 음악 허용/금지 전환")
-    print("- 종료하려면 Ctrl+C")
+    print("start the program")
 
     try:
         while True:
@@ -147,7 +143,7 @@ def cds_music_control():
             time.sleep(0.05)
 
     except KeyboardInterrupt:
-        print("\n프로그램을 종료합니다.")
+        print("\nturn off the program")
 
     finally:
         GPIO.output(SPKR, GPIO.LOW)

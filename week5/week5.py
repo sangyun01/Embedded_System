@@ -6,8 +6,8 @@ TRIG = 23  # [1]
 ECHO = 24  # [2]
 
 # LED -> Setting the LED Pin
-led_R = 17  # [3]
-led_Y = 27  # [4]
+led_R = 20  # [3]
+led_Y = 21  # [4]
 
 # Servo
 SERVO_PIN = 18  # [5]

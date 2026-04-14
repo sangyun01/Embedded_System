@@ -1,0 +1,79 @@
+ 연결된 카메라 목록 출력: 
+rpicam-hello --list-cameras
+❖ 5초 미리보기
+• 기본 Preview 창 실행하여 약 5초 동안 카메라 영상 표시: 
+rpicam-hello
+❖ 사진 및 동영상 촬영하기
+• 사진 촬영 및 이미지 파일 저장: 
+rpicam-still -o image.jpg
+• 동영상 촬영 및 .h264 형식으로 저장: 
+rpicam-still -o image.jpg
+• python-picamera 모듈 설치: 
+sudo apt install python3-picamera2
+❖ 파이썬으로 영상 녹화
+• picam.py 실행: 
+python3 picam.py
+❖파이썬으로 사진 촬영
+• picam.py 실행: 
+python3 picam.py
+
+UV 가상환경 세팅
+OS에 설치되어 있는 Python 패키지를  
+포함하여 가상환경 생성
+• 가상환경 생성: 
+python -m venv --system-site-packages venv 
+• 가상환경 활성화: 
+source venv/bin/activate 
+• 활성화되면 (venv) 표시가 뜸
+
+---
+
+ OpenCV 설치: 
+pip3 install opencv-contrib-python 
+• OpenCV 버전 확인 (각 줄 명령어 입력 후 엔터 입력): 
+python3 
+import cv2 
+cv2.__version__       
+#OpenCV 버전 출력 
+exit
+---
+
+• YOLO 설치 전 관련 라이브러리 업데이트: 
+sudo apt-get –y install python3-pip libjpeg-dev libopenblas-dev 
+libopenmpi-dev libomp-dev
+• YOLO 실행에 필요한 Pytorch와 ultralytics 패키지 설치: 
+pip3 install torch torchvision torchaudio ultralytics 
+• 사전 학습된 YOLO v11n 모델 정보 확인 (파일 위치: examples/yolo_v11/
+yolov11_model_names.py): 
+python yolov11_model_names.py
+
+
+---
+error
+• 현재 가상환경 비활성화: 
+deactivate 2>/dev/null || true
+• YOLO 및 PyTorch 관련 패키지 전체 제거 (충돌 원인 제거): 
+python3 -m pip uninstall -y ultralytics ultralytics-thop torch torchvision triton cuda-toolkit 
+cuda-bindings nvidia-cudnn-cu13 nvidia-cusparselt-cu13 nvidia-nccl-cu13 nvidia-nvshmem
+cu13 nvidia-cublas nvidia-cuda-runtime nvidia-cufft nvidia-cufile nvidia-cuda-cupti nvidia
+curand nvidia-cusolver nvidia-cusparse nvidia-nvjitlink nvidia-cuda-nvrtc nvidia-nvtx
+
+• 작업 디렉토리로 이동: 
+cd /home/pi/Desktop/src
+• 기존 가상환경 삭제 (깨진 환경 초기화): 
+rm -rf venv
+• 새로운 가상환경 생성 및 활성화: 
+python3 -m venv venv —system-site-packages 
+source .venv/bin/activate
+• 사용자 site 패키지 경로 차단 (충돌 방지): 
+export PYTHONNOUSERSITE=1
+• 사용자 패키지, Python import 경로 확인: 
+python -c "import site; print(site.getusersitepackages())" 
+python -c "import sys; print('\n'.join(sys.path))"
+
+• 패키지 설치 도구 최신화: 
+python -m pip install -U pip setuptools wheel 
+• YOLO 라이브러리(ultralytics) 설치: 
+python -m pip install ultralytics 
+• 정상 import 여부 확인: 
+python -c "from ultralytics import YOLO; print(‘ok')"
